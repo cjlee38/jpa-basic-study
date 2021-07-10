@@ -18,12 +18,12 @@ import java.util.Date;
 @Setter
 @ToString
 //@Table(name = "user") // 만약 db table 이름이 user라면 이렇게 하면 됨.
-@SequenceGenerator(
-        name = "MEMBER_SEQ_GENERATOR",
-        sequenceName = "MEMBER_SEQ",
-        initialValue = 1,
-        allocationSize = 1
-) // 시퀀스를 별도로 적용하고 싶을 경우.
+//@SequenceGenerator(
+//        name = "MEMBER_SEQ_GENERATOR",
+//        sequenceName = "MEMBER_SEQ",
+//        initialValue = 1,
+//        allocationSize = 1
+//) // 시퀀스를 별도로 적용하고 싶을 경우.
 public class Member {
 
     /*
@@ -38,6 +38,7 @@ public class Member {
     private String  name;
      */
 
+    /*
     @Id
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
@@ -61,6 +62,22 @@ public class Member {
 
     @Lob // 제한이 없는 경우.
     private String description;
+     */
 
-    public Member() {}
+    // == //
+    @Id @GeneratedValue
+    @Column(name = "MEMBER_ID")
+    private Long id;
+
+//    @Column
+    private String username;
+
+//    @Column(name = "TEAM_ID")
+//    private Long teamId;
+
+
+    @ManyToOne
+    @JoinColumn(name = "TEAM_ID")
+    private Team team;
+
 }
