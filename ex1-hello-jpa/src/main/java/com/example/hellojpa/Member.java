@@ -5,7 +5,9 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 //create table member (
 //        id bigint not null,
@@ -78,6 +80,17 @@ public class Member {
 
     @ManyToOne
     @JoinColumn(name = "TEAM_ID")
-    private Team team;
+    private Team team; // 올바른 다대일 매핑
+
+    @OneToOne
+    @JoinColumn(name = "LOCKER_ID")
+    private Locker locker; // ManyToOne이랑 비슷.
+
+//    @ManyToMany
+//    @JoinTable(name = "MEMBER_PRODUCT")
+//    private List<Product> products = new ArrayList<>(); 실무에서 사용 X
+
+    @OneToMany(mappedBy = "member")
+    private List<MemberProduct> memberProducts = new ArrayList<>();
 
 }

@@ -21,7 +21,12 @@ public class Team {
     private String name;
 
 
-    @OneToMany(mappedBy = "team")
-    private List<Member> members = new ArrayList<>(); // new ArrayList<>()는 관례
+//    @OneToMany(mappedBy = "team")
+//    private List<Member> members = new ArrayList<>(); // new ArrayList<>()는 관례
+
+    // 만약 일대다 단방향인경우 ?
+    @OneToMany
+    @JoinColumn(name = "TEAM_ID")
+    private List<Member> members = new ArrayList<>();
 
 }
