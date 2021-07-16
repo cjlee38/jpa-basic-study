@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 //@ToString
-public class Team {
+public class Team extends BaseEntity { //
 
     @Id @GeneratedValue
 

@@ -50,9 +50,9 @@ public class JpaMain {
         team.setName("teamA");
         em.persist(team);
 
-        Team team2 = new Team();
-        team.setName("teamB");
-        em.persist(team2);
+//        Team team2 = new Team();
+//        team.setName("teamB");
+//        em.persist(team2);
 
         Member member = new Member();
         member.setUsername("member1");
@@ -75,7 +75,7 @@ public class JpaMain {
 //            System.out.println("m = " + m);
 //        }
 
-        findMember.setTeam(team2);
+//        findMember.setTeam(team2);
         em.flush();
         em.clear();
         Team team1 = em.find(Team.class, team.getId());
